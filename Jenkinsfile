@@ -9,7 +9,7 @@ pipeline{
                 sh "docker build . -t node-app:5"
                 sh "docker login -u $username -p $password"
                 sh "docker image ls"
-                sh "docker run -d -p 89:3000 node-app:5"
+                sh "docker run -d -p 80:3000 node-app:5"
                 sh "docker push 852456000/nodejs:5"
             }
             
