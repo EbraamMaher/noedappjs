@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage('Build image'){
             steps{
-                withCredentials([usernamePassword(credentialsId: 'docker', userVariable: 'username',passwordVariable: 'password')]){
+                withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'username',passwordVariable: 'password')]){
                 sh "docker build . -t node-app:5"
                 sh "docker login -u $username -p $password"
                 sh "docker run -d -p 90:3000 node-app:5"
